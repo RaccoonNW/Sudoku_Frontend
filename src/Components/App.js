@@ -60,15 +60,8 @@ function App() {
 
   }
 
-  function importPuzzle() {
-    fetch("http://localhost:3001/puzzles")
-      .then((r) => r.json())
-      .then((puzzle) => console.log(puzzle))
-  }
-
     return (
       <div>
-        <button onClick={importPuzzle}>Press ME</button>
         <Welcome/>
         <Switch>
           <Route exact path='/saves'>
