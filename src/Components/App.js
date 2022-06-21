@@ -12,6 +12,8 @@ import '../db.json'
 import {Route, Switch} from 'react-router-dom'
 // import Counter from './Counter';
 
+// Added a comment
+
 function App() {
 
   const [user, setUser] = useState(null)
