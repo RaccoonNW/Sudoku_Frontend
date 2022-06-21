@@ -71,7 +71,7 @@ function App() {
 
     return (
       <div>
-        <button onClick={importPuzzle}>PUSH ME</button>
+        <button onClick={importPuzzle}>Press ME</button>
         <Welcome/>
         <Switch>
           <Route exact path='/saves'>
