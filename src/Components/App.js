@@ -64,7 +64,7 @@ function App() {
 
   if (!user) {
     return (
-      <Signup/>
+      <Signup setUser={setUser}/>
     )
   } else {
     return (
