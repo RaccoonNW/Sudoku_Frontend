@@ -10,6 +10,7 @@ import Login from './Login';
 import './App.css'
 import '../db.json'
 import {Route, Switch} from 'react-router-dom'
+import Signup from './Signup';
 // import Counter from './Counter';
 
 // Added a comment
@@ -60,6 +61,12 @@ function App() {
 
   }
 
+
+  if (!user) {
+    return (
+      <Signup/>
+    )
+  } else {
     return (
       <div>
         <Welcome/>
@@ -106,6 +113,8 @@ function App() {
   
       </div>
     )
+
+  }
 
 
 }
