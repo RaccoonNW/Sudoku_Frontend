@@ -17,7 +17,7 @@ function Signup () {
 
     function handleSubmit(e) {
         e.preventDefault()
-        setErrors([])
+        // setErrors([])
         fetch('localhost/3001/users', {
           method: 'POST',
           headers: {
@@ -76,12 +76,12 @@ function Signup () {
                     />
                     </div>
                     <button type="submit" className="login-signup-button">Signup</button>
-                    <div className='errors'>
+                    {/* <div className='errors'>
                         {errors.map((err) => (
                         <p key={err}>{err}</p>
                         ))}
-                    </div>
-                    <p>--------------------</p>
+                    </div> */}
+                    {/* <p>--------------------</p>
                     <div className="toggle-login-signup-div">
                         <p>
                             Already have an account?
@@ -89,7 +89,7 @@ function Signup () {
                                 Log In
                             </button>
                         </p>
-                    </div>
+                    </div> */}
                 </form>
             </div>
       </div>
