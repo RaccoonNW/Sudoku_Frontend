@@ -61,12 +61,9 @@ function App() {
   }
 
   function importPuzzle() {
-    fetch("http://localhost:3001/puzzle", {
-      method: 'GET',
-      mode: "no-cors"
-    })
-    .then((r) => r.json())
-    .then((puzzle) => console.log(puzzle))
+    fetch("http://localhost:3001/puzzles")
+      .then((r) => r.json())
+      .then((puzzle) => console.log(puzzle))
   }
 
     return (
