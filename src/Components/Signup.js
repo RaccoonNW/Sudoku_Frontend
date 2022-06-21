@@ -18,7 +18,7 @@ function Signup () {
     function handleSubmit(e) {
         e.preventDefault()
         // setErrors([])
-        fetch('localhost/3001/users', {
+        fetch('http://localhost:3001/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
