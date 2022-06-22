@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-function Options({setDifficulty, setStarted, setSavedGame}) {
+function Options({setDifficulty, setStarted, setSavedGame }) {
 
     const [mode, setMode] = useState(null)
 
@@ -11,6 +11,7 @@ function Options({setDifficulty, setStarted, setSavedGame}) {
             fetch('http://localhost:3001/puzzles')
                 .then((r) => r.json())
                 .then((puzzles) => {
+                    console.log(puzzles)
                     setStarted(false)
                     setDifficulty(puzzles[mode])
                     setSavedGame(puzzles[mode].puzzle)
@@ -26,7 +27,6 @@ function Options({setDifficulty, setStarted, setSavedGame}) {
         
 
     return (
-        <div id="setup-game">
             <div id="difficulty">
                 <h3>Choose Difficulty:</h3>
                 <select name='difficulty' id='difficulty-select' onChange={handleSetDifficulty}>  
@@ -36,7 +36,6 @@ function Options({setDifficulty, setStarted, setSavedGame}) {
                     <option id='diff-3' value={2}>Hard</option>
                 </select>
             </div>
-        </div>
     )
 
 }

@@ -6,14 +6,14 @@ function Welcome() {
         <div className="welcomeDiv">
             <NavLink
                 to='/game'
-                exact
+                // exact
                 className='welcomeLinks'
             >
                 Game
             </NavLink>
             <NavLink
                 to='/saves'
-                exact
+                // exact
                 className='welcomeLinks'
             >
                 Saves

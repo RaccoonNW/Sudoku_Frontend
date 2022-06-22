@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import Header from './Header';
+// import Header from './Header';
 import Game from './Game';
 import Options from './Options';
 import Buttons from './Buttons';
 import Stats from './Stats';
-import Welcome from './Welcome';
+import NavBar from './NavBar';
 import Saves from './Saves';
 import Login from './Login';
 import './App.css'
 import '../db.json'
-import {Route, Switch} from 'react-router-dom'
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Signup from './Signup';
 // import Counter from './Counter';
 
@@ -17,10 +17,11 @@ import Signup from './Signup';
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(true)
 
   const [theme, setTheme] = useState(false)
   const [difficulty, setDifficulty] = useState()
+  const [gameSolution, setGameSolution] = useState()
   const [lives, setLives] = useState(3)
   const [selected, setSelected] = useState(null)
   const [started, setStarted] = useState(false)
@@ -62,23 +63,50 @@ function App() {
   }
 
 
-  if (!user) {
+  // if (!user) {
+  //   return (
+  //     <Signup setUser={setUser}/>
+  //   )
+  // } else {
     return (
-      <Signup setUser={setUser}/>
-    )
-  } else {
-    return (
-      <div>
-        <Welcome/>
-        <Switch>
-          <Route exact path='/saves'>
-            <Saves temporarySaveText={temporarySaveText}/>
-          </Route>
-          <Route exact path='/game'>
-            <Header />
+      <div className='main-container'>
+        <div className='navbar-div'>
+          <NavBar/>
+        </div>
+          <Routes>
+            <Route path='/saves' element={<Saves temporarySaveText={temporarySaveText}/>}/>
             {/* <Counter/> */}
-            <Options setDifficulty={setDifficulty} setStarted={setStarted} setSavedGame={setSavedGame}/>
-            <Buttons
+            <Route
+              path='/game'
+              element={
+                <Game 
+                  selectedNumber={selectedNumber} 
+                  setSelectedNumber={setSelectedNumber}
+                  theme={theme}
+                  selected={selected}
+                  setSelected={setSelected}
+                  difficulty={difficulty}
+                  selectedTile={selectedTile}
+                  setSelectedTile={setSelectedTile}
+                  started={started}
+                  lives={lives}
+                  setLives={setLives}
+                  savedGame={savedGame}
+                  setSavedGame={setSavedGame}
+                  updateSavedGame={updateSavedGame}
+                  setTheme={setTheme} 
+                  setStarted={setStarted}
+                  postSavedGame={postSavedGame}
+                  setTemporarySaveText={setTemporarySaveText}
+                  setDifficulty={setDifficulty}
+                  setGameSolution={setGameSolution}
+                  gameSolution={gameSolution}
+                />
+              }
+            />
+                
+            {/* <Options setDifficulty={setDifficulty} setStarted={setStarted} setSavedGame={setSavedGame}/> */}
+            {/* <Buttons
               setLives={setLives}  
               theme={theme} setTheme={setTheme} 
               setStarted={setStarted}
@@ -87,12 +115,12 @@ function App() {
               updateSavedGame={updateSavedGame}
               postSavedGame={postSavedGame}
               setTemporarySaveText={setTemporarySaveText}
-            />
-            <Stats 
+            /> */}
+            {/* <Stats 
               lives={lives} 
               setLives={setLives}
-            />
-            <Game 
+            /> */}
+            {/* <Game 
               selectedNumber={selectedNumber} 
               setSelectedNumber={setSelectedNumber}
               theme={theme}
@@ -107,14 +135,13 @@ function App() {
               savedGame={savedGame}
               setSavedGame={setSavedGame}
               updateSavedGame={updateSavedGame}
-            />
-          </Route>
-        </Switch>
+            /> */}
+        </Routes>
   
       </div>
     )
 
-  }
+  
 
 
 }

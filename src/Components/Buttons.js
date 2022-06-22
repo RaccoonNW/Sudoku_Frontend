@@ -1,6 +1,6 @@
 import './App.css'
 
-function Buttons({theme, setTheme, setLives, setStarted, setSavedGame, savedGame, updateSavedGame, postSavedGame, setTemporarySaveText}) {
+function Buttons({theme, setTheme, setLives, setStarted, setSavedGame, savedGame, updateSavedGame, postSavedGame, setTemporarySaveText, difficulty}) {
 
     const buttonText = theme ? 'Light Mode' : 'Dark Mode'
     
@@ -13,6 +13,7 @@ function Buttons({theme, setTheme, setLives, setStarted, setSavedGame, savedGame
     function startGame() {
         setStarted(true)
         setLives(3)
+        console.log(difficulty)
     }
 
     function handleSaveGame() {

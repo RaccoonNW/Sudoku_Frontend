@@ -18,7 +18,7 @@ function Board({
 
     
     return (
-        <div id='board'>
+        <>
             <br/>
             <br/>
                 {started && difficulty && difficulty.puzzle.split('').map((tileData, idx) => {
@@ -40,7 +40,7 @@ function Board({
                         />
                     )
                 })} 
-        </div>
+        </>
         
     )
 }

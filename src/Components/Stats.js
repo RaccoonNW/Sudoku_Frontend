@@ -4,7 +4,7 @@ function Stats({lives}) {
 
     return (
         <div id="stats">
-            <p id="lives">Lives: {lives > 0 ? lives : "GAME OVER"}</p>
+            <p id="lives">{lives > 0 ? `Lives: ${lives}` : "GAME OVER"}</p>
         </div>
     )
 }
